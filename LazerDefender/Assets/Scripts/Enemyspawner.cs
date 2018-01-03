@@ -7,10 +7,14 @@ public class Enemyspawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		//foreach (Transform child in transform) {
-			GameObject enemy=Instantiate (enemyprefab, new Vector3 (0, 0, 0), Quaternion.identity) as GameObject;
-			enemy.transform.parent = transform;
-		//}
+
+			
+		    
+		foreach (Transform child in transform) {
+			GameObject enemy=Instantiate (enemyprefab, child.transform.position, Quaternion.identity) as GameObject;
+			enemy.transform.parent = child;
+		}
+	
 	}
 
 	// Update is called once per frame
