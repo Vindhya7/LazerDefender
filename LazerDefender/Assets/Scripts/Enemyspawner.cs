@@ -41,8 +41,10 @@ public class Enemyspawner : MonoBehaviour {
 
 		float rightedgeofformation=transform.position.x+(0.5f*width);
 		float leftedgeofformation=transform.position.x-(0.5f*width);
-		if (leftedgeofformation < xmin || rightedgeofformation > xmax) {
-			movingright = !movingright;
-		}
+		if (leftedgeofformation < xmin) {
+			movingright = true;
+		}else if(rightedgeofformation > xmax){
+			movingright = false;
+			
 	}
 }
