@@ -5,7 +5,23 @@ using UnityEngine;
 public class enemybehav : MonoBehaviour {
 	
 	public float health=150f;
+	public GameObject projectile;
+	public float projectilespeed=5f;
+	public float shotspersec=0.5f;
 
+
+	void Update () {
+		float prob = Time.deltaTime * shotspersec;
+
+		if (Random.value < prob) {
+			Fire ();
+		}
+	}
+    void Fire(){
+		Vector3 startpos = transform.position + new Vector3 (0,-1,0);
+		GameObject missile=Instantiate (projectile, startpos , Quaternion.identity) as GameObject;
+		missile.GetComponent<Rigidbody2D>().velocity = new Vector3 (0,-projectilespeed,0);
+	}
 	void OnTriggerEnter2D(Collider2D col){
 		projectile missile = col.gameObject.GetComponent<projectile> ();
 

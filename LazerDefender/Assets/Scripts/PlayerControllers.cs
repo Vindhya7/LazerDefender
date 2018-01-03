@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerControllers : MonoBehaviour {
 	public float speed=15.0f;
 	public float padding = 1f;
+	public float health = 250f;
 	float xmin;
 	float xmax;
 	public GameObject projectile;
@@ -21,7 +22,8 @@ public class PlayerControllers : MonoBehaviour {
 	}
 
 	public void Fire(){
-		GameObject beam = Instantiate (projectile, transform.position, Quaternion.identity) as GameObject;
+		Vector3 offset = new Vector3 (0,1,0);
+		GameObject beam = Instantiate (projectile, transform.position+offset, Quaternion.identity) as GameObject;
 		beam.GetComponent<Rigidbody2D>().velocity = new Vector3 (0,projectilespeed,0);
 	
 	}
@@ -48,6 +50,19 @@ public class PlayerControllers : MonoBehaviour {
 
 		float newx = Mathf.Clamp (transform.position.x,xmin,xmax);
 		transform.position = new Vector3 (newx,transform.position.y,transform.position.z);
+	}
+
+	void OnTriggerEnter2D(Collider2D col){
+		projectile missile = col.gameObject.GetComponent<projectile> ();
+
+		if (missile) {
+			health -= missile.getdamage ();
+			missile.hit ();
+			if (health <= 0) {
+				Destroy (gameObject);
+			}
+
+		}
 	}
 }
 
