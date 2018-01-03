@@ -7,6 +7,8 @@ public class PlayerControllers : MonoBehaviour {
 	public float padding = 1f;
 	float xmin;
 	float xmax;
+	public GameObject projectile;
+	public float projectilespeed=5f;
 	// Use this for initialization
 	void Start () {
 
@@ -19,6 +21,12 @@ public class PlayerControllers : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		if (Input.GetKey (KeyCode.Space)) {
+			GameObject beam = Instantiate (projectile, transform.position, Quaternion.identity) as GameObject;
+			beam.rigidbody2D.velocity = new Vector3 (0,projectilespeed,0);
+		}
+
 		if(Input.GetKey(KeyCode.LeftArrow)){
 
 			transform.position += Vector3.left * speed * Time.deltaTime;
