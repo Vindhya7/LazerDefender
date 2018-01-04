@@ -11,6 +11,8 @@ public class PlayerControllers : MonoBehaviour {
 	public GameObject projectile;
 	public float projectilespeed=5f;
 	public float rate=0.2f;
+
+	public AudioClip fire;
 	// Use this for initialization
 	void Start () {
 
@@ -25,6 +27,7 @@ public class PlayerControllers : MonoBehaviour {
 		Vector3 offset = new Vector3 (0,1,0);
 		GameObject beam = Instantiate (projectile, transform.position+offset, Quaternion.identity) as GameObject;
 		beam.GetComponent<Rigidbody2D>().velocity = new Vector3 (0,projectilespeed,0);
+		AudioSource.PlayClipAtPoint (fire, transform.position);
 	
 	}
 	// Update is called once per frame
