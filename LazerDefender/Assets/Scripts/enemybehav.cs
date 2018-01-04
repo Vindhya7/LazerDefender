@@ -9,6 +9,14 @@ public class enemybehav : MonoBehaviour {
 	public float projectilespeed=5f;
 	public float shotspersec=0.5f;
 
+	public int scorevalue=150;
+
+	private Scorekeeper scorekeeper;
+
+	void Start(){
+		scorekeeper=GameObject.Find ("Score").GetComponent<Scorekeeper> ();
+	}
+
 
 	void Update () {
 		float prob = Time.deltaTime * shotspersec;
@@ -30,6 +38,7 @@ public class enemybehav : MonoBehaviour {
 			missile.hit ();
 			if (health <= 0) {
 				Destroy (gameObject);
+				scorekeeper.scoreinc (scorevalue);
 			}
 
 		}
