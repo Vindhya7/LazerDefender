@@ -10,6 +10,10 @@ public class Enemyspawner : MonoBehaviour {
 	public float speed=5f;
 	public float spawndelay=0.5f;
 
+
+
+	int i=0;
+
 	private float xmin;
 	private float xmax;
 	// Use this for initialization
@@ -67,8 +71,16 @@ public class Enemyspawner : MonoBehaviour {
 			
 	}
 		if (AllMembersDead()) {
-
+			i++;
 			spawnuntillfull ();
+
+			if (i == 3) {
+				Debug.Log ("New level");
+				LevelManager level = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
+				level.LoadLevel ("Game1");
+			}
+
+
 			
 		}
 }

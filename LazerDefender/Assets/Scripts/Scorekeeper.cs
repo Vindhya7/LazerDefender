@@ -18,6 +18,12 @@ public class Scorekeeper : MonoBehaviour {
 	public void scoreinc(int point){
 		score += point;
 		mytext.text = score.ToString();
+
+		if (score == 20000) {
+			Debug.Log ("New level");
+			LevelManager level = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
+			level.LoadLevel ("Win Screen");
+		}
 	}
 
 	public static void reset(){
