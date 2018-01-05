@@ -121,6 +121,9 @@ MonoBehaviour:
   projectile: {fileID: 1018883826802282, guid: 4b15ee7dbc23d8b4a9dfd320c68558fe, type: 2}
   projectilespeed: 5
   shotspersec: 0.5
+  scorevalue: 150
+  fire: {fileID: 8300000, guid: 003b943606e6abd43b7e50bd80010eef, type: 3}
+  death: {fileID: 8300000, guid: f1ef7bb57a6e45c40bace54dc708f494, type: 3}
 --- !u!212 &212460231267629072
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -150,8 +153,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -702820361
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c051af8ea0ef13545bb033a4b09c785e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -45,12 +45,7 @@ public class PlayerControllers : MonoBehaviour {
 			transform.position += Vector3.left * speed * Time.deltaTime;
 		}else if(Input.GetKey(KeyCode.RightArrow)){
 			transform.position += Vector3.right * speed * Time.deltaTime;
-		}else if(Input.GetKey(KeyCode.UpArrow)){
-			transform.position+=new Vector3(0,speed*Time.deltaTime,0);
-		}else if(Input.GetKey(KeyCode.DownArrow)){
-			transform.position+=new Vector3(0,-speed*Time.deltaTime,0);
 		}
-
 		float newx = Mathf.Clamp (transform.position.x,xmin,xmax);
 		transform.position = new Vector3 (newx,transform.position.y,transform.position.z);
 	}
@@ -62,7 +57,10 @@ public class PlayerControllers : MonoBehaviour {
 			health -= missile.getdamage ();
 			missile.hit ();
 			if (health <= 0) {
+				
 				Destroy (gameObject);
+				LevelManager level = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
+				level.LoadLevel ("Lost");
 			}
 
 		}

@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemylaser
+    uniqueID: 2786330555
+    locked: 0
+  - name: Enemies
+    uniqueID: 3592146935
+    locked: 0
+  - name: Playerlaser
+    uniqueID: 281297117
+    locked: 0
+  - name: Player
+    uniqueID: 1609980411
+    locked: 0
+  - name: Explosion
+    uniqueID: 4063663819
+    locked: 0
