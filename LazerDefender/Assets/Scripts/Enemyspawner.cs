@@ -73,13 +73,25 @@ public class Enemyspawner : MonoBehaviour {
 		if (AllMembersDead()) {
 			i++;
 			spawnuntillfull ();
+			Debug.Log (Application.loadedLevel);
 
 			if (i == 3) {
-				Debug.Log ("New level");
+				Debug.Log (Application.loadedLevel);
 				LevelManager level = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
 				level.LoadLevel ("Game1");
 			}
-
+			if (Application.loadedLevel == 4) {
+				if (i == 7) {
+					LevelManager level = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
+					level.LoadLevel ("Game2");
+				}
+			}
+			if (Application.loadedLevel == 5) {
+				if (i == 11) {
+					LevelManager level = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
+					level.LoadLevel ("Win Screen");
+				}
+			}
 
 			
 		}
