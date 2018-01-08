@@ -8,6 +8,10 @@ public class MusicPlayer : MonoBehaviour {
 	public AudioClip Game;
 	public AudioClip death;
 
+	private Scorekeeper scorekeeper;
+
+
+
 
 	private AudioSource music;
 	
@@ -34,6 +38,7 @@ public class MusicPlayer : MonoBehaviour {
 		}
 		if (level == 1) {
 			music.clip = Game;
+
 		}
 
 		if (level == 3) {
@@ -43,6 +48,7 @@ public class MusicPlayer : MonoBehaviour {
 		if (level == 2) {
 			music.clip = start;
 		}
+
 
 		music.loop = true;
 		music.Play ();

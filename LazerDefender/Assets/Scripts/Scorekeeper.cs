@@ -6,12 +6,21 @@ using UnityEngine;
 public class Scorekeeper : MonoBehaviour {
 
 	public static int score=0;
+
 	private Text mytext;
+
+
+
+
+
 
 	void Start(){
 	
 		mytext=GetComponent<Text> ();
+
+
 		reset ();
+	
 	
 	}
 
@@ -24,7 +33,12 @@ public class Scorekeeper : MonoBehaviour {
 			LevelManager level = GameObject.Find ("LevelManager").GetComponent<LevelManager>();
 			level.LoadLevel ("Win Screen");
 		}
+
+
+
 	}
+
+
 
 	public static void reset(){
 		score = 0;

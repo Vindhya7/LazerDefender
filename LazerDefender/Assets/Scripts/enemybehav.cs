@@ -9,7 +9,7 @@ public class enemybehav : MonoBehaviour {
 	public float projectilespeed=5f;
 	public float shotspersec=0.5f;
 
-	GameObject smoke;
+
 
 	public int scorevalue=150;
 
@@ -47,8 +47,7 @@ public class enemybehav : MonoBehaviour {
 				Destroy (gameObject);
 				AudioSource.PlayClipAtPoint (death,transform.position);
 				scorekeeper.scoreinc (scorevalue);
-				GameObject smokepuff=Instantiate (smoke, gameObject.transform.position, Quaternion.identity) as GameObject;
-				smokepuff.GetComponent<ParticleSystem> ().startColor = gameObject.GetComponent<SpriteRenderer> ().color;
+
 			}
 
 		}
